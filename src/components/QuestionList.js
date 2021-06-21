@@ -54,7 +54,9 @@ class QuestionList extends Component {
 
 function mapStateToProps({ authUser, questions, users }) {
   const userAnswers = Object.keys(users[authUser].answers);
-  const qids = Object.keys(questions);
+  const qids = Object.values(questions)
+    .sort((a, b) => b.timestamp - a.timestamp)
+    .map((question) => question.id);
   return {
     authUser,
     answered: qids.filter((qid) => userAnswers.includes(qid)),

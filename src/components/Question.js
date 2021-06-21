@@ -27,6 +27,7 @@ function mapStateToProps({ authUser, users, questions }, ownProps) {
     unanswered: !(qid in users[authUser].answers) ? true : false,
     author: questions[qid].author,
     invalidQuestion,
+    qid
   };
 }
 

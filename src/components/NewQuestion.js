@@ -12,7 +12,7 @@ class NewQuestion extends Component {
   state = {
     optionOne: "",
     optionTwo: "",
-    toHome: false,
+    redirect: false,
   };
 
   handleInputOne = (e) => {
@@ -33,6 +33,7 @@ class NewQuestion extends Component {
     e.preventDefault();
     const { optionOne, optionTwo } = this.state;
     const { dispatch, authUser } = this.props;
+
     dispatch(
       addNewQuestion({
         author: authUser,
@@ -40,18 +41,20 @@ class NewQuestion extends Component {
         optionTwoText: optionTwo,
       })
     );
+
     this.setState(() => ({
-      toHome: true,
+      redirect: true,
     }));
+
+    console.log(this.state)
   };
 
   render() {
-    const { optionOne, optionTwo, toHome } = this.state;
+    const { optionOne, optionTwo, redirect } = this.state;
 
-    if (toHome === true) {
+    if (redirect) {
       return <Redirect to="/" />;
     }
-
     return (
       <Container>
         <Card>
