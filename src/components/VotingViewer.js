@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 
@@ -14,10 +14,10 @@ class VotingViewer extends Component {
         <p>
           {optionOne} or {optionTwo}
         </p>
-        <Link to={`/question/${qid}`} >
-        <Button variant="info" className="my-3 w-50">
-          { answered ? "View Results" : "Go Vote!" }
-        </Button>
+        <Link to={`/questions/${qid}`}>
+          <Button variant="info" className="my-3 w-50">
+            {answered ? "View Results" : "Go Vote!"}
+          </Button>
         </Link>
       </Container>
     );

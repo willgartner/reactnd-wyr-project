@@ -7,8 +7,7 @@ import Vote from "./Vote";
 
 class Question extends Component {
   render() {
-    const qid = "6ni6ok3ym7mf1p33lnez";
-    const { author, unanswered, invalidQuestion } = this.props;
+    const { author, unanswered, invalidQuestion, qid } = this.props;
     if (invalidQuestion) {
       return <NotFound />;
     } else {

@@ -44,7 +44,7 @@ export function addUserSelection(vote) {
       authedUser: vote.authUser,
       answer: vote.vote,
     })
-    .then(() => dispatch(addUserVote(vote)))
+      .then(() => dispatch(addUserVote(vote)))
       .then(() => dispatch(addVote(vote)))
 
       .then(() => dispatch(isLoading(false)))

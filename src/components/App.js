@@ -29,8 +29,8 @@ class App extends Component {
             ) : authUser ? (
               <div>
                 <Route path="/" exact component={QuestionList} />
-                <Route path="/question/:qid" component={Question} />
-                <Route path="/new" component={NewQuestion} />
+                <Route path="/questions/:qid" component={Question} />
+                <Route path="/add" component={NewQuestion} />
                 <Route path="/leaderboard" component={Leaderboard} />
               </div>
             ) : (
