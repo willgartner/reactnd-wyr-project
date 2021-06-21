@@ -33,20 +33,20 @@ class NewQuestion extends Component {
     e.preventDefault();
     const { optionOne, optionTwo } = this.state;
     const { dispatch, authUser } = this.props;
-
-    dispatch(
-      addNewQuestion({
-        author: authUser,
-        optionOneText: optionOne,
-        optionTwoText: optionTwo,
-      })
+    this.setState(
+      () => ({
+        redirect: true,
+      }),
+      () => {
+        dispatch(
+          addNewQuestion({
+            author: authUser,
+            optionOneText: optionOne,
+            optionTwoText: optionTwo,
+          })
+        );
+      }
     );
-
-    this.setState(() => ({
-      redirect: true,
-    }));
-
-    console.log(this.state)
   };
 
   render() {
