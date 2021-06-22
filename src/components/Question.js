@@ -23,9 +23,10 @@ class Question extends Component {
 function mapStateToProps({ authUser, users, questions }, ownProps) {
   const qid = ownProps.match ? ownProps.match.params.qid : null;
   const invalidQuestion = !(qid in questions) || !qid ? true : false;
+  const author = invalidQuestion ? null : questions[qid].author;
   return {
     unanswered: !(qid in users[authUser].answers) ? true : false,
-    author: questions[qid].author,
+    author,
     invalidQuestion,
     qid
   };
